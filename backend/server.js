@@ -288,6 +288,77 @@ app.post("/admin/login", (req, res) => {
 
 });
 
+// ========================================
+// ADD EVENT API
+// ========================================
+
+app.post("/events", (req, res) => {
+
+    const {
+        title,
+        category,
+        description,
+        location,
+        event_date,
+        event_time,
+        price,
+        max_guests,
+        image
+    } = req.body;
+
+    // Validation
+    if (
+        !title ||
+        !category ||
+        !description ||
+        !location ||
+        !event_date ||
+        !event_time ||
+        !price ||
+        !max_guests
+    ) {
+        return res.status(400).json({
+            success: false,
+            message: "Please fill all required fields."
+        });
+    }
+
+    const sql = `
+        INSERT INTO events
+        (title, category, description, location, event_date, event_time, price, max_guests, image)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `;
+
+    db.query(
+        sql,
+        [
+            title,
+            category,
+            description,
+            location,
+            event_date,
+            event_time,
+            price,
+            max_guests,
+            image || null
+        ],
+        (err, result) => {
+
+            if (err) {
+                return res.status(500).json(err);
+            }
+
+            res.json({
+                success: true,
+                message: "Event added successfully.",
+                eventId: result.insertId
+            });
+
+        }
+    );
+
+});
+
 app.listen(PORT, () => {
     console.log(`🚀 Server Running on http://localhost:${PORT}`);
 });
