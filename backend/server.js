@@ -175,7 +175,118 @@ app.post("/login", (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
+// ========================================
+// ADMIN REGISTER API
+// ========================================
 
+app.post("/admin/register", async (req, res) => {
+
+    const { username, password } = req.body;
+
+    if (!username || !password) {
+        return res.status(400).json({
+            success: false,
+            message: "Please fill all fields."
+        });
+    }
+
+    db.query(
+        "SELECT * FROM admins WHERE username = ?",
+        [username],
+        async (err, result) => {
+
+            if (err) {
+                return res.status(500).json(err);
+            }
+
+            if (result.length > 0) {
+                return res.status(400).json({
+                    success: false,
+                    message: "Admin already exists."
+                });
+            }
+
+            const hashedPassword = await bcrypt.hash(password, 10);
+
+            db.query(
+                "INSERT INTO admins(username,password) VALUES(?,?)",
+                [username, hashedPassword],
+                (err) => {
+
+                    if (err) {
+                        return res.status(500).json(err);
+                    }
+
+                    res.json({
+                        success: true,
+                        message: "Admin registered successfully."
+                    });
+
+                }
+            );
+
+        }
+    );
+
+});
+
+// ========================================
+// ADMIN LOGIN API
+// ========================================
+
+console.log("✅ Admin login route loaded");
+
+app.post("/admin/login", (req, res) => {
+
+    const { username, password } = req.body;
+
+    db.query(
+        "SELECT * FROM admins WHERE username = ?",
+        [username],
+        async (err, result) => {
+
+            if (err) return res.status(500).json(err);
+
+            if (result.length === 0) {
+                return res.status(404).json({
+                    success: false,
+                    message: "Admin not found."
+                });
+            }
+
+            const admin = result[0];
+
+            const isMatch = await bcrypt.compare(password, admin.password);
+
+            if (!isMatch) {
+                return res.status(401).json({
+                    success: false,
+                    message: "Invalid password."
+                });
+            }
+
+            const token = jwt.sign(
+                {
+                    id: admin.id,
+                    username: admin.username,
+                    role: "admin"
+                },
+                process.env.JWT_SECRET,
+                {
+                    expiresIn: "1d"
+                }
+            );
+
+            res.json({
+                success: true,
+                message: "Admin Login Successful",
+                token
+            });
+
+        }
+    );
+
+});
 
 app.listen(PORT, () => {
     console.log(`🚀 Server Running on http://localhost:${PORT}`);
