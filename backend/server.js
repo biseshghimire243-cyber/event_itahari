@@ -41,11 +41,71 @@ app.get("/", (req, res) => {
     res.send("🚀 Welcome to Event Itahari API");
 });
 
+// ========================================
+// USER REGISTER API
+// ========================================
+
+app.post("/register", async (req, res) => {
+
+    const { full_name, email, phone, password } = req.body;
+
+    // Check if all fields are filled
+    if (!full_name || !email || !phone || !password) {
+        return res.status(400).json({
+            success: false,
+            message: "Please fill all fields."
+        });
+    }
+
+    // Check if email already exists
+    db.query(
+        "SELECT * FROM users WHERE email = ?",
+        [email],
+        async (err, result) => {
+
+            if (err) {
+                return res.status(500).json(err);
+            }
+
+            if (result.length > 0) {
+                return res.status(400).json({
+                    success: false,
+                    message: "Email already exists."
+                });
+            }
+
+            // Encrypt password
+            const hashedPassword = await bcrypt.hash(password, 10);
+
+            // Insert user
+            db.query(
+                "INSERT INTO users(full_name,email,phone,password) VALUES(?,?,?,?)",
+                [full_name, email, phone, hashedPassword],
+                (err, data) => {
+
+                    if (err) {
+                        return res.status(500).json(err);
+                    }
+
+                    res.json({
+                        success: true,
+                        message: "Registration Successful!"
+                    });
+
+                }
+            );
+
+        }
+    );
+
+});
+
 // ===============================
 // Start Server
 // ===============================
 
 const PORT = process.env.PORT || 3000;
+
 
 app.listen(PORT, () => {
     console.log(`🚀 Server Running on http://localhost:${PORT}`);
