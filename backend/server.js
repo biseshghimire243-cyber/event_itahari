@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const mysql = require("mysql2");
 const cors = require("cors");
@@ -11,6 +12,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "../frontend")));
 
 // ===============================
 // Database Connection
@@ -38,9 +40,8 @@ db.connect((err) => {
 // ===============================
 
 app.get("/", (req, res) => {
-    res.send("🚀 Welcome to Event Itahari API");
+    res.sendFile(path.join(__dirname, "../frontend/index.html"));
 });
-
 // ========================================
 // USER REGISTER API
 // ========================================
