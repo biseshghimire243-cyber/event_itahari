@@ -1,14 +1,21 @@
 const express = require("express");
 const mysql = require("mysql2");
 const cors = require("cors");
-require("dotenv").config();
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-// MySQL Connection
+// ===============================
+// Database Connection
+// ===============================
+
 const db = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
@@ -26,14 +33,20 @@ db.connect((err) => {
     console.log("✅ MySQL Connected Successfully");
 });
 
+// ===============================
 // Home Route
+// ===============================
+
 app.get("/", (req, res) => {
-    res.send("🚀 Event Planner Backend Running...");
+    res.send("🚀 Welcome to Event Itahari API");
 });
 
+// ===============================
 // Start Server
+// ===============================
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-    console.log(`✅ Server Running on http://localhost:${PORT}`);
+    console.log(`🚀 Server Running on http://localhost:${PORT}`);
 });
