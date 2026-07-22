@@ -383,6 +383,41 @@ app.get("/events", (req, res) => {
     });
 
 });
+// ========================================
+// GET SINGLE EVENT
+// ========================================
+
+app.get("/events/:id", (req, res) => {
+
+    const id = req.params.id;
+
+    db.query(
+        "SELECT * FROM events WHERE id=?",
+        [id],
+        (err, result) => {
+
+            if (err) {
+                return res.status(500).json(err);
+            }
+
+            if (result.length === 0) {
+
+                return res.status(404).json({
+                    success: false,
+                    message: "Event not found"
+                });
+
+            }
+
+            res.json({
+                success: true,
+                event: result[0]
+            });
+
+        }
+    );
+
+});
 
 app.listen(PORT, () => {
     console.log(`🚀 Server Running on http://localhost:${PORT}`);
