@@ -384,29 +384,6 @@ app.get("/events", (req, res) => {
 
 });
 
-// ========================================
-// GET ALL EVENTS API
-// ========================================
-
-app.get("/events", (req, res) => {
-
-    const sql = "SELECT * FROM events ORDER BY created_at DESC";
-
-    db.query(sql, (err, result) => {
-
-        if (err) {
-            return res.status(500).json(err);
-        }
-
-        res.json({
-            success: true,
-            total: result.length,
-            events: result
-        });
-
-    });
-
-});
 app.listen(PORT, () => {
     console.log(`🚀 Server Running on http://localhost:${PORT}`);
 });
