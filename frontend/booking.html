@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book Event | Event Itahari</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="booking-container">
+
+        <div class="booking-box">
+
+            <h1>Book Your Event</h1>
+
+            <p>Fill in the details below</p>
+
+            <form id="bookingForm">
+
+                <input
+                    type="text"
+                    id="full_name"
+                    placeholder="Full Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Email Address"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="phone"
+                    placeholder="Phone Number"
+                    required
+                >
+
+                <textarea
+                    id="address"
+                    placeholder="Your Address"
+                    rows="3"
+                    required
+                ></textarea>
+
+                <input
+                    type="number"
+                    id="guests"
+                    placeholder="Number of Guests"
+                    required
+                >
+
+                <textarea
+                    id="special_request"
+                    placeholder="Special Requests (Optional)"
+                    rows="4"
+                ></textarea>
+
+                <button type="submit">
+
+                    Confirm Booking
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="js/booking.js"></script>
+
+</body>
+
+</html>

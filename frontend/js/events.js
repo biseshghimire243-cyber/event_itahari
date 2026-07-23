@@ -14,9 +14,9 @@ async function loadEvents() {
 
         console.log(data);
 
-        if (!data.success) {
+        if (!data.success || data.events.length === 0) {
 
-            eventContainer.innerHTML = "<h2>No Events Found</h2>";
+            eventContainer.innerHTML = "<h2>No Events Available</h2>";
 
             return;
 
@@ -38,15 +38,15 @@ async function loadEvents() {
 
                         <p><strong>Category:</strong> ${event.category}</p>
 
-                        <p><strong>Description:</strong> ${event.description}</p>
+                        <p>${event.description}</p>
 
-                        <p><strong>Location:</strong> 📍 ${event.location}</p>
+                        <p>📍 ${event.location}</p>
 
-                        <p><strong>Date:</strong> 📅 ${new Date(event.event_date).toLocaleDateString()}</p>
+                        <p>📅 ${new Date(event.event_date).toLocaleDateString()}</p>
 
-                        <p><strong>Time:</strong> ⏰ ${event.event_time}</p>
+                        <p>⏰ ${event.event_time}</p>
 
-                        <p><strong>Guests:</strong> 👥 ${event.max_guests}</p>
+                        <p>👥 ${event.max_guests} Guests</p>
 
                         <h3>Rs. ${event.price}</h3>
 
@@ -62,9 +62,11 @@ async function loadEvents() {
 
         });
 
-    } catch (err) {
+    }
 
-        console.error("Error:", err);
+    catch (err) {
+
+        console.error(err);
 
         eventContainer.innerHTML = "<h2>Unable to load events.</h2>";
 
