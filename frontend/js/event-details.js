@@ -94,7 +94,7 @@ async function loadEvent() {
 
 loadEvent();
 
-async function bookEvent(eventId) {
+function goToBooking(eventId) {
 
     const user = JSON.parse(localStorage.getItem("user"));
 
@@ -108,40 +108,6 @@ async function bookEvent(eventId) {
 
     }
 
-    try {
-
-        const response = await fetch("http://localhost:3000/book-event", {
-
-            method: "POST",
-
-            headers: {
-
-                "Content-Type": "application/json"
-
-            },
-
-            body: JSON.stringify({
-
-                user_id: user.id,
-
-                event_id: eventId
-
-            })
-
-        });
-
-        const data = await response.json();
-
-        alert(data.message);
-
-    }
-
-    catch (err) {
-
-        console.log(err);
-
-        alert("Booking Failed");
-
-    }
+    window.location.href = `booking.html?id=${eventId}`;
 
 }
