@@ -62,7 +62,7 @@ async function loadEvent() {
 
                 <div class="details-buttons">
 
-                    <button class="book-btn" onclick="bookEvent(${event.id})">
+                   <button class="book-btn" onclick="goToBooking(${event.id})">
     Book Now
 </button>
 

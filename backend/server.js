@@ -424,37 +424,88 @@ app.get("/events/:id", (req, res) => {
 
 app.post("/book-event", (req, res) => {
 
-    const { user_id, event_id } = req.body;
+    const {
 
-    if (!user_id || !event_id) {
+        user_id,
+        event_id,
+        full_name,
+        email,
+        phone,
+        address,
+        guests,
+        special_request
+
+    } = req.body;
+
+    if (
+        !user_id ||
+        !event_id ||
+        !full_name ||
+        !email ||
+        !phone ||
+        !address ||
+        !guests
+    ) {
 
         return res.status(400).json({
             success: false,
-            message: "Missing required fields."
+            message: "Please fill all required fields."
         });
 
     }
 
     const sql = `
-        INSERT INTO bookings(user_id, event_id)
-        VALUES (?, ?)
+        INSERT INTO bookings
+        (
+            user_id,
+            event_id,
+            full_name,
+            email,
+            phone,
+            address,
+            guests,
+            special_request
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     `;
 
-    db.query(sql, [user_id, event_id], (err, result) => {
+    db.query(
 
-        if (err) {
-            return res.status(500).json(err);
+        sql,
+
+        [
+            user_id,
+            event_id,
+            full_name,
+            email,
+            phone,
+            address,
+            guests,
+            special_request
+        ],
+
+        (err) => {
+
+            if (err) {
+
+                console.log(err);
+
+                return res.status(500).json(err);
+
+            }
+
+            res.json({
+
+                success: true,
+                message: "🎉 Booking Successful!"
+
+            });
+
         }
 
-        res.json({
-            success: true,
-            message: "Event booked successfully!"
-        });
-
-    });
+    );
 
 });
-
 app.listen(PORT, () => {
     console.log(`🚀 Server Running on http://localhost:${PORT}`);
 });
