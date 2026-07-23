@@ -418,6 +418,42 @@ app.get("/events/:id", (req, res) => {
     );
 
 });
+// ========================================
+// BOOK EVENT API
+// ========================================
+
+app.post("/book-event", (req, res) => {
+
+    const { user_id, event_id } = req.body;
+
+    if (!user_id || !event_id) {
+
+        return res.status(400).json({
+            success: false,
+            message: "Missing required fields."
+        });
+
+    }
+
+    const sql = `
+        INSERT INTO bookings(user_id, event_id)
+        VALUES (?, ?)
+    `;
+
+    db.query(sql, [user_id, event_id], (err, result) => {
+
+        if (err) {
+            return res.status(500).json(err);
+        }
+
+        res.json({
+            success: true,
+            message: "Event booked successfully!"
+        });
+
+    });
+
+});
 
 app.listen(PORT, () => {
     console.log(`🚀 Server Running on http://localhost:${PORT}`);

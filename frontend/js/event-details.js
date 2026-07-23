@@ -62,11 +62,9 @@ async function loadEvent() {
 
                 <div class="details-buttons">
 
-                    <button class="book-btn">
-
-                        Book Now
-
-                    </button>
+                    <button class="book-btn" onclick="bookEvent(${event.id})">
+    Book Now
+</button>
 
                     <button class="back-btn" onclick="history.back()">
 
@@ -95,3 +93,55 @@ async function loadEvent() {
 }
 
 loadEvent();
+
+async function bookEvent(eventId) {
+
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!user) {
+
+        alert("Please login first.");
+
+        window.location.href = "login.html";
+
+        return;
+
+    }
+
+    try {
+
+        const response = await fetch("http://localhost:3000/book-event", {
+
+            method: "POST",
+
+            headers: {
+
+                "Content-Type": "application/json"
+
+            },
+
+            body: JSON.stringify({
+
+                user_id: user.id,
+
+                event_id: eventId
+
+            })
+
+        });
+
+        const data = await response.json();
+
+        alert(data.message);
+
+    }
+
+    catch (err) {
+
+        console.log(err);
+
+        alert("Booking Failed");
+
+    }
+
+}
