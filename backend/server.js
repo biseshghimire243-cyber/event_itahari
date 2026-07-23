@@ -506,6 +506,49 @@ app.post("/book-event", (req, res) => {
     );
 
 });
+// ========================================
+// GET MY BOOKINGS
+// ========================================
+
+app.get("/my-bookings/:userId", (req, res) => {
+
+    const userId = req.params.userId;
+
+    const sql = `
+        SELECT
+            bookings.*,
+            events.title,
+            events.location,
+            events.event_date,
+            events.price
+        FROM bookings
+        JOIN events
+        ON bookings.event_id = events.id
+        WHERE bookings.user_id = ?
+        ORDER BY bookings.id DESC
+    `;
+
+    db.query(sql, [userId], (err, result) => {
+
+        if (err) {
+
+            console.log(err);
+
+            return res.status(500).json(err);
+
+        }
+
+        res.json({
+
+            success: true,
+
+            bookings: result
+
+        });
+
+    });
+
+});
 app.listen(PORT, () => {
     console.log(`🚀 Server Running on http://localhost:${PORT}`);
 });
