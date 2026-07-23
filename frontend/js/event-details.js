@@ -4,44 +4,94 @@ const params = new URLSearchParams(window.location.search);
 
 const id = params.get("id");
 
-fetch(`http://localhost:3000/events/${id}`)
-.then(res=>res.json())
-.then(data=>{
+async function loadEvent() {
 
-    const event=data.event;
+    try {
 
-    container.innerHTML=`
+        const response = await fetch(`http://localhost:3000/events/${id}`);
 
-    <div class="event-card">
+        const data = await response.json();
 
-        <img src="https://picsum.photos/900/450?random=${event.id}">
+        if (!data.success) {
 
-        <div class="event-content">
+            container.innerHTML = "<h2>Event Not Found</h2>";
 
-            <h1>${event.title}</h1>
+            return;
 
-            <p>${event.description}</p>
+        }
 
-            <p><strong>Category:</strong> ${event.category}</p>
+        const event = data.event;
 
-            <p><strong>Location:</strong> ${event.location}</p>
+        container.innerHTML = `
 
-            <p><strong>Date:</strong> ${new Date(event.event_date).toLocaleDateString()}</p>
+        <div class="details-card">
 
-            <p><strong>Time:</strong> ${event.event_time}</p>
+            <div class="details-image">
 
-            <h2>Rs. ${event.price}</h2>
+                <img src="https://picsum.photos/900/500?random=${event.id}" alt="${event.title}">
 
-            <button id="bookBtn">
+            </div>
 
-                Book Now
+            <div class="details-content">
 
-            </button>
+                <span class="badge">${event.category}</span>
+
+                <h1>${event.title}</h1>
+
+                <p class="description">
+
+                    ${event.description}
+
+                </p>
+
+                <div class="info">
+
+                    <p>📍 <strong>Location:</strong> ${event.location}</p>
+
+                    <p>📅 <strong>Date:</strong> ${new Date(event.event_date).toLocaleDateString()}</p>
+
+                    <p>⏰ <strong>Time:</strong> ${event.event_time}</p>
+
+                    <p>👥 <strong>Guests:</strong> ${event.max_guests}</p>
+
+                    <p>💰 <strong>Price:</strong> Rs. ${event.price}</p>
+
+                    <p>✅ <strong>Status:</strong> ${event.status}</p>
+
+                </div>
+
+                <div class="details-buttons">
+
+                    <button class="book-btn">
+
+                        Book Now
+
+                    </button>
+
+                    <button class="back-btn" onclick="history.back()">
+
+                        Back
+
+                    </button>
+
+                </div>
+
+            </div>
 
         </div>
 
-    </div>
+        `;
 
-    `;
+    }
 
-});
+    catch (err) {
+
+        console.log(err);
+
+        container.innerHTML = "<h2>Something went wrong.</h2>";
+
+    }
+
+}
+
+loadEvent();
