@@ -11,38 +11,196 @@ body{
 }
 
 /* ==========================
-   HERO
+   PREMIUM HERO
 ========================== */
 
 .about-hero{
-    height:80vh;
+
+    height:100vh;
+
     background:
-    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
     url("../images/about-banner.jpg");
+
     background-size:cover;
+
     background-position:center;
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
     text-align:center;
+
+    position:relative;
+
 }
 
-.overlay{
-    color:#fff;
-    max-width:850px;
+.hero-content{
+
+    max-width:950px;
+
+    color:white;
+
+    z-index:2;
+
     padding:20px;
+
 }
 
-.overlay h1{
-    font-size:65px;
-    margin-bottom:20px;
+.hero-tag{
+
+    display:inline-block;
+
+    padding:10px 24px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    border-radius:30px;
+
+    margin-bottom:30px;
+
+    font-size:15px;
+
 }
 
-.overlay p{
+.hero-content h1{
+
+    font-size:72px;
+
+    line-height:1.2;
+
+    margin-bottom:25px;
+
+}
+
+.hero-content p{
+
     font-size:20px;
-    line-height:1.8;
+
+    line-height:1.9;
+
+    color:#e5e7eb;
+
+    max-width:800px;
+
+    margin:auto;
+
 }
 
+.hero-buttons{
+
+    margin-top:45px;
+
+}
+
+.btn-primary{
+
+    display:inline-block;
+
+    text-decoration:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:18px 40px;
+
+    border-radius:12px;
+
+    margin-right:15px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.btn-primary:hover{
+
+    background:#1d4ed8;
+
+}
+
+.btn-secondary{
+
+    display:inline-block;
+
+    text-decoration:none;
+
+    border:2px solid white;
+
+    color:white;
+
+    padding:18px 40px;
+
+    border-radius:12px;
+
+    transition:.3s;
+
+}
+
+.btn-secondary:hover{
+
+    background:white;
+
+    color:#111827;
+
+}
+
+.hero-stats{
+
+    margin-top:70px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:80px;
+
+}
+
+.hero-stats h2{
+
+    font-size:42px;
+
+}
+
+.hero-stats span{
+
+    color:#d1d5db;
+
+}
+
+@media(max-width:768px){
+
+.hero-content h1{
+
+    font-size:42px;
+
+}
+
+.hero-content p{
+
+    font-size:16px;
+
+}
+
+.hero-stats{
+
+    flex-direction:column;
+
+    gap:30px;
+
+}
+
+}
 /* ==========================
    STORY
 ========================== */
