@@ -1072,7 +1072,97 @@ body {
   color: #555;
 }
 /* ==========================
-   VIDEO SECTION
+   FEATURED VIDEO
+========================== */
+
+.featured-video{
+
+    max-width:1300px;
+
+    margin:90px auto;
+
+    display:grid;
+
+    grid-template-columns:1.3fr 1fr;
+
+    gap:50px;
+
+    align-items:center;
+
+    padding:0 20px;
+
+}
+
+.featured-left video{
+
+    width:100%;
+
+    border-radius:20px;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.2);
+
+}
+
+.featured-tag{
+
+    display:inline-block;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    margin-bottom:20px;
+
+}
+
+.featured-right h2{
+
+    font-size:40px;
+
+    margin-bottom:20px;
+
+    color:#111827;
+
+}
+
+.featured-right p{
+
+    color:#666;
+
+    line-height:1.8;
+
+}
+
+.featured-info{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+    margin-top:35px;
+
+}
+
+.featured-info div{
+
+    background:#f8fafc;
+
+    padding:20px;
+
+    border-radius:12px;
+
+}
+
+
+
+/* ==========================
+   VIDEO GRID
 ========================== */
 
 .videos-section{
@@ -1089,9 +1179,7 @@ body {
 
 .videos-section h2{
 
-    font-size:40px;
-
-    color:#1e3a8a;
+    font-size:42px;
 
     margin-bottom:10px;
 
@@ -1099,9 +1187,9 @@ body {
 
 .videos-section p{
 
-    color:#666;
-
     margin-bottom:40px;
+
+    color:#666;
 
 }
 
@@ -1109,9 +1197,9 @@ body {
 
     display:grid;
 
-    grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 
-    gap:30px;
+    gap:25px;
 
 }
 
@@ -1119,13 +1207,13 @@ body {
 
     background:#fff;
 
-    border-radius:12px;
+    border-radius:15px;
 
     overflow:hidden;
 
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
 
-    transition:.3s;
+    transition:.4s;
 
 }
 
@@ -1139,7 +1227,7 @@ body {
 
     width:100%;
 
-    height:230px;
+    height:220px;
 
     object-fit:cover;
 
@@ -1147,16 +1235,42 @@ body {
 
 .video-card h3{
 
-    margin:18px 0 8px;
+    margin:18px 0 10px;
 
 }
 
-.video-card span{
-
-    display:block;
+.video-card p{
 
     margin-bottom:20px;
 
     color:#666;
+
+}
+
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:900px){
+
+.featured-video{
+
+    grid-template-columns:1fr;
+
+}
+
+.featured-right{
+
+    text-align:center;
+
+}
+
+.featured-info{
+
+    grid-template-columns:1fr 1fr;
+
+}
 
 }
