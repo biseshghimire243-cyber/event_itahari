@@ -175,29 +175,27 @@
 
     <div class="contact-form">
 
-        <h2>Send Us A Message</h2>
+    <h2>Send Us A Message</h2>
 
-        <form>
+    <form id="contactForm">
 
-            <input type="text" placeholder="Full Name">
+        <input type="text" id="name" placeholder="Full Name" required>
 
-            <input type="email" placeholder="Email Address">
+        <input type="email" id="email" placeholder="Email Address" required>
 
-            <input type="tel" placeholder="Phone Number">
+        <input type="tel" id="phone" placeholder="Phone Number" required>
 
-            <input type="text" placeholder="Event Type">
+        <input type="text" id="event" placeholder="Event Type">
 
-            <textarea rows="6" placeholder="Write your message..."></textarea>
+        <textarea id="message" rows="6" placeholder="Write your message..." required></textarea>
 
-            <button type="submit">
+        <button type="submit">
+            Send Message
+        </button>
 
-                Send Message
+    </form>
 
-            </button>
-
-        </form>
-
-    </div>
+</div>
 <div class="contact-image">
 
     <img src="https://picsum.photos/700/700?random=25" alt="Contact">
@@ -235,11 +233,7 @@
     </div>
 
 </section>
-
-
-
-
-
+<script src="js/contact.js"></script>
 
 </body>
 
