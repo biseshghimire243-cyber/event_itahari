@@ -1525,3 +1525,72 @@ body {
     color:#9ca3af;
 
 }
+/* ==========================
+   GALLERY INTRO
+========================== */
+
+.gallery-info{
+
+    max-width:1100px;
+
+    margin:70px auto 50px;
+
+    padding:0 20px;
+
+    text-align:center;
+
+}
+
+.gallery-info-content{
+
+    background:#ffffff;
+
+    padding:50px;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.gallery-info span{
+
+    display:inline-block;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    padding:8px 20px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    margin-bottom:20px;
+
+}
+
+.gallery-info h2{
+
+    font-size:42px;
+
+    color:#1f2937;
+
+    margin-bottom:20px;
+
+}
+
+.gallery-info p{
+
+    max-width:850px;
+
+    margin:auto;
+
+    color:#6b7280;
+
+    font-size:17px;
+
+    line-height:1.9;
+
+}
