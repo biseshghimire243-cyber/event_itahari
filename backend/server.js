@@ -12,8 +12,12 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "../frontend")));
 
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/login.html"));
+});
+
+app.use(express.static(path.join(__dirname, "../frontend")));
 // ===============================
 // Database Connection
 // ===============================
@@ -39,9 +43,9 @@ db.connect((err) => {
 // Home Route
 // ===============================
 
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend/index.html"));
-});
+// app.get("/", (req, res) => {
+//     res.sendFile(path.join(__dirname, "../frontend/index.html"));
+// });
 // ========================================
 // USER REGISTER API
 // ========================================
@@ -549,6 +553,8 @@ app.get("/my-bookings/:userId", (req, res) => {
     });
 
 });
+
+
 app.listen(PORT, () => {
     console.log(`🚀 Server Running on http://localhost:${PORT}`);
 });

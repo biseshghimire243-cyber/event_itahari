@@ -38,7 +38,7 @@ loginForm.addEventListener("submit", async (e) => {
 
             alert("Login Successful!");
 
-            window.location.href = "events.html";
+            window.location.href = "index.html";
 
         } else {
 
