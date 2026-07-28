@@ -36,3 +36,31 @@ function changeWord(){
 changeWord();
 
 setInterval(changeWord,2500);
+
+const modal = document.getElementById("trustModal");
+
+const openBtn = document.getElementById("openModal");
+
+const closeBtn = document.querySelector(".close-btn");
+
+openBtn.onclick = () => {
+
+    modal.style.display = "flex";
+
+}
+
+closeBtn.onclick = () => {
+
+    modal.style.display = "none";
+
+}
+
+window.onclick = (e) => {
+
+    if(e.target == modal){
+
+        modal.style.display = "none";
+
+    }
+
+}
