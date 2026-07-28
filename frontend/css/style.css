@@ -2066,3 +2066,237 @@ background: transparent;
     }
 
 }
+
+/* ==========================
+   FEEDBACK SECTION
+========================== */
+
+.feedback-section{
+
+    padding:120px 8%;
+
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+
+    text-align:center;
+
+    color:#fff;
+
+}
+
+.feedback-content{
+
+    max-width:850px;
+
+    margin:auto;
+
+}
+
+.feedback-content span{
+
+    letter-spacing:2px;
+
+    font-weight:bold;
+
+}
+
+.feedback-content h2{
+
+    font-size:48px;
+
+    margin:20px 0;
+
+}
+
+.feedback-content p{
+
+    line-height:1.9;
+
+    font-size:18px;
+
+    margin-bottom:40px;
+
+}
+
+.feedback-btn{
+
+    padding:18px 45px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#fff;
+
+    color:#2563eb;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.feedback-btn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+}
+
+/* ==========================
+   MODAL
+========================== */
+
+.feedback-modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    justify-content:center;
+
+    align-items:center;
+
+    backdrop-filter:blur(8px);
+
+    z-index:9999;
+
+}
+
+.feedback-box{
+
+    width:90%;
+
+    max-width:650px;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:40px;
+
+    position:relative;
+
+    animation:popup .4s;
+
+}
+
+.feedback-box h2{
+
+    color:#111827;
+
+    text-align:center;
+
+}
+
+.feedback-box p{
+
+    text-align:center;
+
+    color:#666;
+
+    margin-bottom:25px;
+
+}
+
+.feedback-box input,
+
+.feedback-box select,
+
+.feedback-box textarea{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-bottom:18px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+}
+
+.feedback-box textarea{
+
+    resize:none;
+
+}
+
+.feedback-box button{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    transition:.3s;
+
+}
+
+.feedback-box button:hover{
+
+    background:#1d4ed8;
+
+}
+
+.feedback-close{
+
+    position:absolute;
+
+    right:20px;
+
+    top:15px;
+
+    font-size:35px;
+
+    cursor:pointer;
+
+}
+
+.feedback-close:hover{
+
+    color:red;
+
+}
+
+@keyframes popup{
+
+    from{
+
+        transform:scale(.8);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
