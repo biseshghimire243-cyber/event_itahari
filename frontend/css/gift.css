@@ -1,0 +1,201 @@
+/* ==========================
+   GIFT BOX
+========================== */
+
+.gift-box{
+
+    position:fixed;
+
+    bottom:30px;
+
+    right:30px;
+
+    width:75px;
+
+    height:75px;
+
+    background:#2563eb;
+
+    color:white;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:38px;
+
+    cursor:pointer;
+
+    z-index:999;
+
+    box-shadow:0 15px 35px rgba(37,99,235,.45);
+
+    animation:giftFloat 2s ease-in-out infinite;
+
+    transition:.3s;
+
+}
+
+.gift-box:hover{
+
+    transform:scale(1.1);
+
+}
+
+@keyframes giftFloat{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+}
+
+/* ==========================
+   GIFT MODAL
+========================== */
+
+.gift-modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    justify-content:center;
+
+    align-items:center;
+
+    backdrop-filter:blur(6px);
+
+    z-index:9999;
+
+}
+
+.gift-content{
+
+    width:90%;
+
+    max-width:500px;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:40px;
+
+    text-align:center;
+
+    position:relative;
+
+    animation:popup .4s ease;
+
+}
+
+.gift-icon{
+
+    font-size:70px;
+
+    margin-bottom:15px;
+
+}
+
+.reward{
+
+    background:#f3f4f6;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    margin:30px 0;
+
+}
+
+.reward h1{
+
+    color:#2563eb;
+
+    letter-spacing:3px;
+
+}
+
+#copyCoupon{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+}
+
+#copyCoupon:hover{
+
+    background:#1d4ed8;
+
+}
+
+.gift-close{
+
+    position:absolute;
+
+    top:15px;
+
+    right:20px;
+
+    font-size:35px;
+
+    cursor:pointer;
+
+}
+
+.gift-close:hover{
+
+    color:red;
+
+}
+
+@keyframes popup{
+
+    from{
+
+        transform:scale(.7);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
