@@ -136,3 +136,109 @@ copyCoupon.addEventListener("click", () => {
     }, 2000);
 
 });
+
+const canvas = document.getElementById("wheel");
+
+if(canvas){
+
+const ctx = canvas.getContext("2d");
+
+const rewards = [
+"10% OFF",
+"Photography",
+"DJ",
+"Flowers",
+"Decoration",
+"20% OFF",
+"Videography",
+"Balloons"
+];
+
+const colours = [
+"#ef4444",
+"#3b82f6",
+"#22c55e",
+"#f59e0b",
+"#8b5cf6",
+"#06b6d4",
+"#ec4899",
+"#84cc16"
+];
+
+const arc = Math.PI * 2 / rewards.length;
+
+let angle = 0;
+
+function drawWheel(){
+
+ctx.clearRect(0,0,500,500);
+
+for(let i=0;i<rewards.length;i++){
+
+ctx.beginPath();
+
+ctx.moveTo(250,250);
+
+ctx.fillStyle = colours[i];
+
+ctx.arc(
+250,
+250,
+240,
+i*arc+angle,
+(i+1)*arc+angle
+);
+
+ctx.fill();
+
+ctx.save();
+
+ctx.translate(250,250);
+
+ctx.rotate(i*arc+arc/2+angle);
+
+ctx.fillStyle="white";
+
+ctx.font="18px Arial";
+
+ctx.fillText(rewards[i],110,5);
+
+ctx.restore();
+
+}
+
+}
+
+drawWheel();
+
+let spinning=false;
+
+document.getElementById("spin").onclick=()=>{
+
+if(spinning)return;
+
+spinning=true;
+
+let speed=0.45;
+
+const timer=setInterval(()=>{
+
+angle+=speed;
+
+speed*=0.985;
+
+drawWheel();
+
+if(speed<0.002){
+
+clearInterval(timer);
+
+spinning=false;
+
+}
+
+},20);
+
+};
+
+}
