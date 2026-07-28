@@ -123,11 +123,10 @@ body{
     position: absolute;
     inset: 0;
 
-     background-image:url("https://images.unsplash.com/photo-1511578314322-379afb476865?w=1920");
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+     background-image: url("https://picsum.photos/1920/1080?random=101");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
 
     animation: heroZoom 18s ease-in-out infinite alternate;
 
@@ -1068,7 +1067,7 @@ body {
 
 .filters button:hover,
 .filters button.active {
-  background: #1e3c72;
+background: transparent;
   color: #ffffff;
   border-color: #1e3c72;
 }
@@ -1669,3 +1668,14 @@ body {
 
 }
 
+#typing{
+
+    color:#3b82f6;
+
+    transition:.3s;
+
+    border-right:3px solid white;
+
+    padding-right:6px;
+
+}
