@@ -1,65 +1,64 @@
-<!-- ==========================
-     SURPRISE GIFT
-========================== -->
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="gift-box" id="giftBox">
+<head>
 
-    🎁
+    <meta charset="UTF-8">
 
-</div>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ==========================
-     GIFT POPUP
-========================== -->
+    <title>Surprise Gift</title>
 
-<div class="gift-modal" id="giftModal">
+    <link rel="stylesheet" href="css/gift.css">
 
-    <div class="gift-content">
+</head>
 
-        <span class="gift-close">&times;</span>
+<body>
 
-        <div class="gift-icon">
+    <!-- ==========================
+         SURPRISE GIFT
+    ========================== -->
 
-            🎉
+    <div class="gift-box" id="giftBox">
+        🎁
+    </div>
+
+    <!-- ==========================
+         GIFT POPUP
+    ========================== -->
+
+    <div class="gift-modal" id="giftModal">
+
+        <div class="gift-content">
+
+            <span class="gift-close">&times;</span>
+
+            <div class="gift-icon">🎉</div>
+
+            <h2>Congratulations!</h2>
+
+            <p>You discovered today's surprise gift!</p>
+
+            <div class="reward">
+
+                <h3 id="rewardTitle">🎁 10% OFF</h3>
+
+                <p>Coupon Code</p>
+
+                <h1 id="couponCode">EVENT10</h1>
+
+            </div>
+
+            <button id="copyCoupon">
+                📋 Copy Coupon
+            </button>
 
         </div>
-
-        <h2>Congratulations!</h2>
-
-        <p>
-
-            You discovered today's surprise gift!
-
-        </p>
-
-        <div class="reward">
-
-            <h3 id="rewardTitle">
-
-                🎁 10% OFF
-
-            </h3>
-
-            <p>
-
-                Coupon Code
-
-            </p>
-
-            <h1 id="couponCode">
-
-                EVENT10
-
-            </h1>
-
-        </div>
-
-        <button id="copyCoupon">
-
-            📋 Copy Coupon
-
-        </button>
 
     </div>
 
-</div>
+    <script src="js/gift.js"></script>
+
+</body>
+
+</html>
