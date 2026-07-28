@@ -64,3 +64,43 @@ window.onclick = (e) => {
     }
 
 }
+
+const feedbackModal = document.getElementById("feedbackModal");
+
+const openFeedback = document.getElementById("openFeedback");
+
+const closeFeedback = document.querySelector(".feedback-close");
+
+openFeedback.onclick = () => {
+
+    feedbackModal.style.display = "flex";
+
+};
+
+closeFeedback.onclick = () => {
+
+    feedbackModal.style.display = "none";
+
+};
+
+window.onclick = (e) => {
+
+    if(e.target == feedbackModal){
+
+        feedbackModal.style.display = "none";
+
+    }
+
+};
+
+document.getElementById("feedbackForm").addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    alert("🎉 Thank you for your valuable feedback!");
+
+    this.reset();
+
+    feedbackModal.style.display="none";
+
+});
