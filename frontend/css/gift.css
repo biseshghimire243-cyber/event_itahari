@@ -372,3 +372,374 @@ font-size:36px;
 }
 
 }
+
+/* ==========================
+   HERO SECTION
+========================== */
+
+.gift-hero{
+
+    min-height:100vh;
+
+    background:linear-gradient(135deg,#1e3c72,#2563eb);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:100px 20px;
+
+    color:#fff;
+
+}
+
+.gift-container{
+
+    max-width:850px;
+
+}
+
+.gift-badge{
+
+    display:inline-block;
+
+    background:rgba(255,255,255,.2);
+
+    padding:10px 25px;
+
+    border-radius:50px;
+
+    margin-bottom:25px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+}
+
+.gift-container h1{
+
+    font-size:60px;
+
+    margin-bottom:20px;
+
+}
+
+.gift-container p{
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    max-width:700px;
+
+    margin:0 auto 35px;
+
+}
+
+.gift-image{
+
+    width:280px;
+
+    border-radius:20px;
+
+    margin:30px auto;
+
+    display:block;
+
+    animation:giftFloat 3s ease-in-out infinite;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+
+}
+
+.gift-btn{
+
+    margin-top:20px;
+
+    padding:18px 45px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#fff;
+
+    color:#2563eb;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.gift-btn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.25);
+
+}
+
+/* ==========================
+   POSSIBLE REWARDS
+========================== */
+
+.possible-rewards{
+
+    padding:100px 8%;
+
+    background:#fff;
+
+    text-align:center;
+
+}
+
+.possible-rewards h2{
+
+    font-size:45px;
+
+    margin-bottom:50px;
+
+    color:#111827;
+
+}
+
+.reward-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:30px;
+
+}
+
+.reward-card{
+
+    background:#fff;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+    font-size:50px;
+
+}
+
+.reward-card h3{
+
+    font-size:20px;
+
+    margin-top:15px;
+
+    color:#333;
+
+}
+
+.reward-card:hover{
+
+    transform:translateY(-12px);
+
+    box-shadow:0 20px 40px rgba(37,99,235,.25);
+
+}
+
+/* ==========================
+   INFO SECTION
+========================== */
+
+.gift-info{
+
+    padding:100px 8%;
+
+    background:#f8fafc;
+
+    text-align:center;
+
+}
+
+.gift-info h2{
+
+    font-size:42px;
+
+    margin-bottom:30px;
+
+    color:#111827;
+
+}
+
+.gift-info p{
+
+    max-width:900px;
+
+    margin:auto;
+
+    font-size:18px;
+
+    line-height:2;
+
+    color:#555;
+
+}
+
+/* ==========================
+   RULES
+========================== */
+
+.gift-rules{
+
+    padding:100px 8%;
+
+    background:#fff;
+
+}
+
+.gift-rules h2{
+
+    text-align:center;
+
+    font-size:42px;
+
+    margin-bottom:40px;
+
+}
+
+.gift-rules ul{
+
+    max-width:700px;
+
+    margin:auto;
+
+    list-style:none;
+
+}
+
+.gift-rules li{
+
+    padding:18px 25px;
+
+    margin-bottom:20px;
+
+    background:#f3f6ff;
+
+    border-left:5px solid #2563eb;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+}
+
+/* ==========================
+   CTA
+========================== */
+
+.gift-cta{
+
+    padding:120px 8%;
+
+    background:linear-gradient(135deg,#2563eb,#1e3c72);
+
+    color:#fff;
+
+    text-align:center;
+
+}
+
+.gift-cta h2{
+
+    font-size:48px;
+
+    margin-bottom:20px;
+
+}
+
+.gift-cta p{
+
+    font-size:20px;
+
+    margin-bottom:35px;
+
+}
+
+.gift-cta a{
+
+    display:inline-block;
+
+    padding:18px 45px;
+
+    background:#fff;
+
+    color:#2563eb;
+
+    text-decoration:none;
+
+    border-radius:50px;
+
+    font-weight:bold;
+
+    transition:.35s;
+
+}
+
+.gift-cta a:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.25);
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:768px){
+
+.gift-container h1{
+
+font-size:42px;
+
+}
+
+.gift-container p{
+
+font-size:17px;
+
+}
+
+.gift-image{
+
+width:220px;
+
+}
+
+.possible-rewards h2,
+.gift-info h2,
+.gift-rules h2,
+.gift-cta h2{
+
+font-size:34px;
+
+}
+
+.reward-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
