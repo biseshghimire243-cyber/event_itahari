@@ -2,338 +2,198 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Daily Surprise Gift | Event Itahari</title>
-
     <link rel="stylesheet" href="css/gift.css">
-
 </head>
 
 <body>
 
-<section class="gift-hero">
-
-    <div class="gift-container">
-
-        <span class="gift-badge">
-
-            🎁 DAILY SURPRISE
-
-        </span>
-
-        <h1>
-
-            Unlock Your Special Reward
-
-        </h1>
-
-        <p>
-
-            Every visitor gets one surprise gift.
-            Click below and discover today's lucky reward
-            from Event Itahari.
-
-        </p>
-
-        <img
-
-        src="https://picsum.photos/350/350?random=90"
-
-        class="gift-image"
-
-        alt="Gift">
-
-        <button id="giftBox" class="gift-btn">
-
-            🎁 Open My Gift
-
-        </button>
-
-    </div>
-
-</section>
-
-
-<section class="possible-rewards">
-
-    <h2>
-
-        🎉 Possible Rewards
-
-    </h2>
-
-    <div class="reward-grid">
-
-        <div class="reward-card">
-
-            📸
-
-            <h3>Free Photography</h3>
-
-        </div>
-
-        <div class="reward-card">
-
-            🎵
-
-            <h3>Free DJ Service</h3>
-
-        </div>
-
-        <div class="reward-card">
-
-            🎂
-
-            <h3>Birthday Decoration</h3>
-
-        </div>
-
-        <div class="reward-card">
-
-            💐
-
-            <h3>Flower Decoration</h3>
-
-        </div>
-
-        <div class="reward-card">
-
-            💰
-
-            <h3>10% Discount</h3>
-
-        </div>
-
-        <div class="reward-card">
-
-            🎈
-
-            <h3>Balloon Decoration</h3>
-
-        </div>
-
-        <div class="reward-card">
-
-            🎥
-
-            <h3>Free Videography</h3>
-
-        </div>
-
-        <div class="reward-card">
-
-            ☕
-
-            <h3>Free Coffee Meeting</h3>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ==========================
-     SPIN THE WHEEL
-========================== -->
-
-<section class="spin-wheel">
-
-    <h2>🎡 Spin The Lucky Wheel</h2>
-
-    <p>
-        Spin once and win exciting rewards from Event Itahari.
-    </p>
-
-    <div class="wheel-container">
-
-        <div class="pointer"></div>
-
-        <canvas
-            id="wheel"
-            width="500"
-            height="500">
-        </canvas>
-
-        <div class="center-circle">
-            🎁
-        </div>
-
-    </div>
-
-    <button id="spin">
-        SPIN NOW
-    </button>
-
-    <div id="result"></div>
-
-</section>
-
-<!-- ==========================
-     POSSIBLE REWARDS
-========================== -->
-
-<section class="possible-rewards">
-
-
-<section class="gift-info">
-
-    <h2>
-
-        Why Do We Give Surprise Gifts?
-
-    </h2>
-
-    <p>
-
-        At Event Itahari, we believe every celebration begins with happiness.
-        Our surprise gifts are a small token of appreciation for trusting us.
-        Whether you're planning a wedding, birthday, seminar, festival,
-        or corporate event, we want to make your journey even more exciting.
-
-    </p>
-
-</section>
-
-
-<section class="gift-rules">
-
-    <h2>
-
-        📜 Lucky Gift Rules
-
-    </h2>
-
-    <ul>
-
-        <li>✔ One gift can be claimed per day.</li>
-
-        <li>✔ Coupon is valid for 30 days.</li>
-
-        <li>✔ Offer applies to selected packages only.</li>
-
-        <li>✔ Coupon cannot be combined with other offers.</li>
-
-        <li>✔ Rewards are randomly selected.</li>
-
-    </ul>
-
-</section>
-
-
-<section class="gift-cta">
-
-    <h2>
-
-        Ready To Plan Your Event?
-
-    </h2>
-
-    <p>
-
-        Let us create unforgettable memories for your special day.
-
-    </p>
-
-    <a href="events.html">
-
-        Book Your Event
-
-    </a>
-
-</section>
-
-
-
-<!-- POPUP -->
-
-<div class="gift-modal" id="giftModal">
-
-    <div class="gift-content">
-
-        <span class="gift-close">&times;</span>
-
-        <div class="gift-icon">
-
-            🎉
-
-        </div>
-
-        <h2>
-
-            Congratulations!
-
-        </h2>
-
-        <p>
-
-            You unlocked today's lucky reward.
-
-        </p>
-
-        <div class="reward">
-
-            <h3 id="rewardTitle">
-
-                🎁 10% OFF
-
-            </h3>
-
-            <p>
-
-                Coupon Code
-
-            </p>
-
-            <h1 id="couponCode">
-
-                EVENT10
-
+    <!-- Floating Gift Button -->
+    <div class="gift-box" id="floatingGiftBtn">🎁</div>
+
+    <!-- Hero Section -->
+    <section class="gift-hero">
+        <div class="gift-container">
+            <span class="gift-badge">
+                🎁 DAILY SURPRISE
+            </span>
+            <h1>
+                Unlock Your Special Reward
             </h1>
-
+            <p>
+                Every visitor gets one surprise gift. 
+                Click below and discover today's lucky reward 
+                from Event Itahari.
+            </p>
+            <img src="https://picsum.photos/350/350?random=90" class="gift-image" alt="Gift">
+            <button id="giftBox" class="gift-btn">
+                🎁 Open My Gift
+            </button>
         </div>
+    </section>
 
-        <button id="copyCoupon">
+    <!-- Possible Rewards Section -->
+    <section class="possible-rewards">
+        <h2>
+            🎉 Possible Rewards
+        </h2>
+        <div class="reward-grid">
+            <div class="reward-card">
+                <div class="icon">📸</div>
+                <h3>Free Photography</h3>
+            </div>
+            <div class="reward-card">
+                <div class="icon">🎵</div>
+                <h3>Free DJ Service</h3>
+            </div>
+            <div class="reward-card">
+                <div class="icon">🎂</div>
+                <h3>Birthday Decoration</h3>
+            </div>
+            <div class="reward-card">
+                <div class="icon">💐</div>
+                <h3>Flower Decoration</h3>
+            </div>
+            <div class="reward-card">
+                <div class="icon">💰</div>
+                <h3>10% Discount</h3>
+            </div>
+            <div class="reward-card">
+                <div class="icon">🎈</div>
+                <h3>Balloon Decoration</h3>
+            </div>
+            <div class="reward-card">
+                <div class="icon">🎥</div>
+                <h3>Free Videography</h3>
+            </div>
+            <div class="reward-card">
+                <div class="icon">☕</div>
+                <h3>Free Coffee Meeting</h3>
+            </div>
+        </div>
+    </section>
 
-            📋 Copy Coupon
-
+    <!-- Spin The Wheel Section -->
+    <section class="spin-wheel">
+        <h2>🎡 Spin The Lucky Wheel</h2>
+        <p>
+            Spin once and win exciting rewards from Event Itahari.
+        </p>
+        <div class="wheel-container">
+            <div class="pointer"></div>
+            <canvas id="wheel" width="500" height="500"></canvas>
+            <div class="center-circle">
+                🎁
+            </div>
+        </div>
+        <button id="spin">
+            SPIN NOW
         </button>
+        <div id="result"></div>
+    </section>
 
+    <!-- Info Section -->
+    <section class="gift-info">
+        <h2>
+            Why Do We Give Surprise Gifts?
+        </h2>
+        <p>
+            At Event Itahari, we believe every celebration begins with happiness. 
+            Our surprise gifts are a small token of appreciation for trusting us. 
+            Whether you're planning a wedding, birthday, seminar, festival, 
+            or corporate event, we want to make your journey even more exciting.
+        </p>
+    </section>
+
+    <!-- Rules Section -->
+    <section class="gift-rules">
+        <h2>
+            📜 Lucky Gift Rules
+        </h2>
+        <ul>
+            <li>✔ One gift can be claimed per day.</li>
+            <li>✔ Coupon is valid for 30 days.</li>
+            <li>✔ Offer applies to selected packages only.</li>
+            <li>✔ Coupon cannot be combined with other offers.</li>
+            <li>✔ Rewards are randomly selected.</li>
+        </ul>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="countdown">
+        <h2>⏰ Next Gift</h2>
+        <p>Refreshes every midnight</p>
+        <div id="countdown">12:45:18</div>
+    </section>
+
+    <!-- Coming Soon Section -->
+    <section class="coming-soon">
+        <h2>🚀 Coming Soon</h2>
+        <div class="coming-grid">
+            <div class="coming-card">
+                <div class="icon">🎡</div>
+                <h3>Spin Wheel</h3>
+                <p>Unlock more multi-tier winning chances daily.</p>
+            </div>
+            <div class="coming-card">
+                <div class="icon">🎟</div>
+                <h3>Scratch & Win</h3>
+                <p>Instant reward scratch cards on every event booking.</p>
+            </div>
+            <div class="coming-card">
+                <div class="icon">🎁</div>
+                <h3>Mystery Box</h3>
+                <p>Unlock hidden VIP packages with mega discounts.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="gift-cta">
+        <h2>
+            Ready To Plan Your Event?
+        </h2>
+        <p>
+            Let us create unforgettable memories for your special day.
+        </p>
+        <a href="events.html">
+            Book Your Event
+        </a>
+    </section>
+
+    <!-- Popup Modal -->
+    <div class="gift-modal" id="giftModal">
+        <div class="gift-content">
+            <span class="gift-close">&times;</span>
+            <div class="gift-icon">
+                🎉
+            </div>
+            <h2>
+                Congratulations!
+            </h2>
+            <p>
+                You unlocked today's lucky reward.
+            </p>
+            <div class="reward">
+                <h3 id="rewardTitle">
+                    🎁 10% OFF
+                </h3>
+                <p>
+                    Coupon Code
+                </p>
+                <h1 id="couponCode">
+                    EVENT10
+                </h1>
+            </div>
+            <button id="copyCoupon">
+                📋 Copy Coupon
+            </button>
+        </div>
     </div>
 
-</div>
-
-<div class="mini-card">
-
-    <h3>⏰ Next Gift</h3>
-
-    <div id="countdown">12:45:18</div>
-
-    <p>Refreshes every midnight</p>
-
-</div>
-<div class="mini-card">
-
-    <h3>🚀 Coming Soon</h3>
-
-    <ul>
-
-        <li>🎡 Spin Wheel</li>
-
-        <li>🎟 Scratch & Win</li>
-
-        <li>🎁 Mystery Box</li>
-
-    </ul>
-
-</div>
-
-
-<script src="js/gift.js"></script>
-
+    <script src="js/gift.js"></script>
 </body>
 
 </html>
