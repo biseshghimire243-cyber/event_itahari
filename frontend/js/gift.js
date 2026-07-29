@@ -290,3 +290,47 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+/* ==========================
+   DAILY GIFT COUNTDOWN TIMER
+========================== */
+function startGiftCountdown() {
+    const countdownEl = document.getElementById("countdown");
+    if (!countdownEl) return;
+
+    function updateCountdown() {
+        const now = new Date();
+        const midnight = new Date();
+        
+        // Set target time to 12:00 AM (midnight) of the next day
+        midnight.setHours(24, 0, 0, 0);
+
+        const diff = midnight - now;
+
+        // If midnight is reached
+        if (diff <= 0) {
+            countdownEl.textContent = "00:00:00";
+            return;
+        }
+
+        // Calculate hours, minutes, and seconds remaining
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        // Helper function to add leading zeros (e.g., 05 instead of 5)
+        const format = (num) => String(num).padStart(2, "0");
+
+        // Display formatted time
+        countdownEl.textContent = `${format(hours)}:${format(minutes)}:${format(seconds)}`;
+    }
+
+    // Run immediately on page load, then update every 1 second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+}
+
+// Initialize countdown when DOM is fully loaded
+document.addEventListener("DOMContentLoaded", () => {
+    startGiftCountdown();
+});
