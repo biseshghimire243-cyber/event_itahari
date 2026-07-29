@@ -334,3 +334,35 @@ function startGiftCountdown() {
 document.addEventListener("DOMContentLoaded", () => {
     startGiftCountdown();
 });
+
+/* ==========================
+   THEME TOGGLE & PERSISTENCE
+========================== */
+function initThemeToggle() {
+    const themeBtn = document.getElementById("themeToggle");
+    if (!themeBtn) return;
+
+    const themeIcon = themeBtn.querySelector(".theme-icon");
+
+    // Check if user previously enabled dark theme
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-theme");
+        if (themeIcon) themeIcon.textContent = "☀️";
+    }
+
+    themeBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-theme");
+        const isDark = document.body.classList.contains("dark-theme");
+
+        // Update icon & persist preference in localStorage
+        if (themeIcon) {
+            themeIcon.textContent = isDark ? "☀️" : "🌙";
+        }
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    initThemeToggle();
+});
