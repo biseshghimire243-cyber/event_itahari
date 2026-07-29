@@ -271,3 +271,22 @@ String(seconds).padStart(2,"0");
 setInterval(updateCountdown,1000);
 
 updateCountdown();
+document.addEventListener("DOMContentLoaded", () => {
+    const faqQuestions = document.querySelectorAll(".faq-question");
+
+    faqQuestions.forEach((button) => {
+        button.addEventListener("click", () => {
+            const faqItem = button.parentElement;
+            
+            // Optional: Close other open accordion items
+            document.querySelectorAll(".faq-item").forEach((item) => {
+                if (item !== faqItem) {
+                    item.classList.remove("active");
+                }
+            });
+
+            // Toggle active state for smooth slide transition
+            faqItem.classList.toggle("active");
+        });
+    });
+});
