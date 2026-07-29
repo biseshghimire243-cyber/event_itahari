@@ -1045,3 +1045,50 @@ font-size:26px;
 }
 
 }
+.countdown{
+
+    padding:80px 20px;
+
+    text-align:center;
+
+    background:#111827;
+
+    color:#fff;
+
+}
+
+.countdown h2{
+
+    font-size:42px;
+
+    margin-bottom:20px;
+
+}
+
+.countdown p{
+
+    color:#cbd5e1;
+
+    margin-bottom:30px;
+
+}
+
+#countdown{
+
+    display:inline-block;
+
+    padding:20px 40px;
+
+    font-size:50px;
+
+    font-weight:bold;
+
+    background:#2563eb;
+
+    border-radius:20px;
+
+    letter-spacing:4px;
+
+    box-shadow:0 15px 35px rgba(37,99,235,.4);
+
+}
