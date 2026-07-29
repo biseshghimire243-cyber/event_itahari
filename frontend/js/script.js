@@ -35,120 +35,84 @@ buttons.forEach(btn=>{
 
 });
 
-const chatButton=document.getElementById("chatButton");
+const chatButton = document.getElementById("chatButton");
+const chatBox = document.getElementById("chatBox");
+const closeChat = document.getElementById("closeChat");
+const sendBtn = document.getElementById("sendBtn");
+const userInput = document.getElementById("userInput");
+const chatBody = document.getElementById("chatBody");
 
-const chatBox=document.getElementById("chatBox");
+if (
+    chatButton &&
+    chatBox &&
+    closeChat &&
+    sendBtn &&
+    userInput &&
+    chatBody
+) {
 
-const closeChat=document.getElementById("closeChat");
+    chatButton.onclick = () => {
+        chatBox.style.display = "block";
+    };
 
-const sendBtn=document.getElementById("sendBtn");
+    closeChat.onclick = () => {
+        chatBox.style.display = "none";
+    };
 
-const userInput=document.getElementById("userInput");
+    sendBtn.onclick = sendMessage;
 
-const chatBody=document.getElementById("chatBody");
+    userInput.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+            sendMessage();
+        }
+    });
 
-chatButton.onclick=()=>{
+    function sendMessage() {
 
-chatBox.style.display="block";
+        const text = userInput.value.trim();
 
-}
+        if (text === "") return;
 
-closeChat.onclick=()=>{
+        chatBody.innerHTML += `
+            <div class="user-message">${text}</div>
+        `;
 
-chatBox.style.display="none";
+        userInput.value = "";
 
-}
+        setTimeout(() => {
 
-sendBtn.onclick=sendMessage;
+            let reply = "😊 Sorry, I didn't understand.";
 
-userInput.addEventListener("keypress",function(e){
+            const msg = text.toLowerCase();
 
-if(e.key==="Enter"){
+            if (msg.includes("booking") || msg.includes("book")) {
+                reply = "📅 You can book events from our Events page.";
+            }
+            else if (msg.includes("price") || msg.includes("cost")) {
+                reply = "💰 Our packages start from Rs. 20,000 depending on the event.";
+            }
+            else if (msg.includes("wedding")) {
+                reply = "💍 We provide complete wedding planning, decoration, photography and catering.";
+            }
+            else if (msg.includes("birthday")) {
+                reply = "🎂 Birthday packages are fully customizable.";
+            }
+            else if (msg.includes("gift")) {
+                reply = "🎁 Visit our Gift page to claim today's surprise reward.";
+            }
+            else if (msg.includes("location")) {
+                reply = "📍 We are located in Itahari, Sunsari, Nepal.";
+            }
+            else if (msg.includes("contact")) {
+                reply = "📞 Contact us at +977-98XXXXXXXX.";
+            }
 
-sendMessage();
+            chatBody.innerHTML += `
+                <div class="bot-message">${reply}</div>
+            `;
 
-}
+            chatBody.scrollTop = chatBody.scrollHeight;
 
-});
-
-function sendMessage(){
-
-const text=userInput.value.trim();
-
-if(text==="") return;
-
-chatBody.innerHTML+=`
-
-<div class="user-message">
-
-${text}
-
-</div>
-
-`;
-
-userInput.value="";
-
-setTimeout(()=>{
-
-let reply="😊 Sorry, I didn't understand.";
-
-const msg=text.toLowerCase();
-
-if(msg.includes("booking")){
-
-reply="📅 You can book events from our Events page.";
-
-}
-
-else if(msg.includes("price")){
-
-reply="💰 Our packages start from Rs. 20,000 depending on the event.";
-
-}
-
-else if(msg.includes("wedding")){
-
-reply="💍 Wedding packages include decoration, photography, DJ and catering.";
-
-}
-
-else if(msg.includes("birthday")){
-
-reply="🎂 Birthday packages are fully customizable.";
-
-}
-
-else if(msg.includes("gift")){
-
-reply="🎁 Visit our Gift page to claim today's surprise reward.";
-
-}
-
-else if(msg.includes("location")){
-
-reply="📍 We are located in Itahari, Sunsari, Nepal.";
-
-}
-
-else if(msg.includes("contact")){
-
-reply="📞 Call us at +977-98XXXXXXXX or visit our Contact page.";
-
-}
-
-chatBody.innerHTML+=`
-
-<div class="bot-message">
-
-${reply}
-
-</div>
-
-`;
-
-chatBody.scrollTop=chatBody.scrollHeight;
-
-},700);
-
+        }, 700);
+    }
 }
