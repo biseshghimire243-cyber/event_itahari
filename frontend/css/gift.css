@@ -778,3 +778,112 @@ body {
     transform: scale(1.1);
     box-shadow: 0 15px 30px rgba(37, 211, 102, 0.6);
 }
+/* ==========================
+   DARK / NIGHT THEME STYLES
+========================== */
+
+/* Smooth color transitions when switching themes */
+body, 
+section, 
+.gift-content, 
+.reward-card, 
+.coming-card, 
+.faq-item {
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Floating Theme Toggle Button */
+.theme-toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #111827;
+    border: 2px solid #e2e8f0;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+/* --------------------------
+   DARK THEME OVERRIDES
+-------------------------- */
+body.dark-theme {
+    background-color: #0f172a;
+    color: #f8fafc;
+}
+
+/* Header & Typography */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme #result,
+body.dark-theme .gift-content h2 {
+    color: #f8fafc;
+}
+
+body.dark-theme p,
+body.dark-theme .gift-info p,
+body.dark-theme .coming-card p,
+body.dark-theme .faq-answer {
+    color: #94a3b8;
+}
+
+/* Cards & Containers */
+body.dark-theme .possible-rewards,
+body.dark-theme .gift-rules,
+body.dark-theme .gift-faq {
+    background-color: #0f172a;
+}
+
+body.dark-theme .gift-info,
+body.dark-theme .spin-wheel,
+body.dark-theme .coming-soon {
+    background-color: #1e293b;
+}
+
+body.dark-theme .reward-card,
+body.dark-theme .coming-card,
+body.dark-theme .gift-content {
+    background-color: #1e293b;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-theme .reward-card h3 {
+    color: #f8fafc;
+}
+
+/* FAQ Accordion Dark Adjustments */
+body.dark-theme .faq-item {
+    background-color: #1e293b;
+    border-color: #334155;
+}
+
+body.dark-theme .faq-question {
+    color: #f8fafc;
+}
+
+/* Gift Rules List Items */
+body.dark-theme .gift-rules li {
+    background-color: #1e293b;
+    color: #f8fafc;
+}
+
+/* Dark Theme Toggle Button State */
+body.dark-theme .theme-toggle-btn {
+    background-color: #1e293b;
+    color: #f8fafc;
+    border-color: #334155;
+}
