@@ -1161,3 +1161,74 @@ font-size:26px;
 
 }
 
+/* ==========================
+   COMPACT CTA
+========================== */
+
+.gift-cta{
+
+    max-width:900px;
+
+    margin:70px auto;
+
+    padding:45px 30px;
+
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+
+    color:#fff;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    box-shadow:0 12px 30px rgba(37,99,235,.25);
+
+}
+
+.gift-cta h2{
+
+    font-size:34px;
+
+    margin-bottom:12px;
+
+}
+
+.gift-cta p{
+
+    font-size:17px;
+
+    color:#e5e7eb;
+
+    margin-bottom:25px;
+
+    line-height:1.6;
+
+}
+
+.gift-cta a{
+
+    display:inline-block;
+
+    padding:14px 35px;
+
+    background:#fff;
+
+    color:#2563eb;
+
+    text-decoration:none;
+
+    border-radius:50px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.gift-cta a:hover{
+
+    background:#f3f4f6;
+
+    transform:translateY(-3px);
+
+}
