@@ -1,1234 +1,671 @@
 /* ==========================
-   BODY
+   RESET & BASE STYLES
 ========================== */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
-    background:#f5f7fb;
+body {
+    background: #f5f7fb;
 }
 
 /* ==========================
    FLOATING GIFT BUTTON
 ========================== */
 
-.gift-box{
-
-    position:fixed;
-
-    bottom:30px;
-
-    right:30px;
-
-    width:80px;
-
-    height:80px;
-
-    background:linear-gradient(135deg,#2563eb,#1d4ed8);
-
-    border-radius:50%;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:42px;
-
-    cursor:pointer;
-
-    color:#fff;
-
-    box-shadow:0 15px 35px rgba(37,99,235,.4);
-
-    z-index:999;
-
-    transition:.35s;
-
-    animation:floatGift 2.5s ease-in-out infinite;
-
+.gift-box {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 42px;
+    cursor: pointer;
+    color: #fff;
+    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.4);
+    z-index: 999;
+    transition: 0.35s;
+    animation: floatGift 2.5s ease-in-out infinite;
 }
 
-.gift-box:hover{
-
-    transform:scale(1.12);
-
+.gift-box:hover {
+    transform: scale(1.12);
 }
 
 /* Pulse Ring */
-
-.gift-box::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:100%;
-
-    height:100%;
-
-    border-radius:50%;
-
-    border:3px solid rgba(37,99,235,.4);
-
-    animation:pulse 2s infinite;
-
+.gift-box::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid rgba(37, 99, 235, 0.4);
+    animation: pulse 2s infinite;
 }
 
 /* ==========================
-   MODAL
+   MODAL & POPUP
 ========================== */
 
-.gift-modal{
+.gift-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+}
 
-    position:fixed;
+.gift-content {
+    width: 90%;
+    max-width: 520px;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 25px;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    animation: popup 0.4s ease;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+}
 
-    inset:0;
+.gift-icon {
+    font-size: 75px;
+    margin-bottom: 20px;
+}
 
-    display:none;
+.gift-content h2 {
+    font-size: 36px;
+    color: #111827;
+    margin-bottom: 10px;
+}
 
-    justify-content:center;
+.gift-content p {
+    color: #666;
+    line-height: 1.7;
+}
 
-    align-items:center;
+/* Close Button */
+.gift-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    cursor: pointer;
+    transition: 0.35s;
+}
 
-    background:rgba(0,0,0,.65);
-
-    backdrop-filter:blur(8px);
-
-    z-index:9999;
-
+.gift-close:hover {
+    background: #ef4444;
+    color: #fff;
+    transform: rotate(90deg);
 }
 
 /* ==========================
-   POPUP BOX
+   REWARD CARD & COUPON
 ========================== */
 
-.gift-content{
-
-    width:90%;
-
-    max-width:520px;
-
-    background:rgba(255,255,255,.96);
-
-    border-radius:25px;
-
-    padding:40px;
-
-    text-align:center;
-
-    position:relative;
-
-    animation:popup .4s ease;
-
-    box-shadow:0 20px 45px rgba(0,0,0,.2);
-
+.reward {
+    margin: 35px 0;
+    padding: 25px;
+    background: #f3f6ff;
+    border-radius: 18px;
 }
 
-.gift-icon{
-
-    font-size:75px;
-
-    margin-bottom:20px;
-
+.reward h3 {
+    font-size: 28px;
+    color: #2563eb;
+    margin-bottom: 10px;
 }
 
-.gift-content h2{
-
-    font-size:36px;
-
-    color:#111827;
-
-    margin-bottom:10px;
-
+.reward p {
+    color: #777;
+    margin-bottom: 10px;
 }
 
-.gift-content p{
-
-    color:#666;
-
-    line-height:1.7;
-
+.reward h1 {
+    color: #111827;
+    letter-spacing: 3px;
+    font-size: 42px;
 }
 
-/* ==========================
-   REWARD CARD
-========================== */
-
-.reward{
-
-    margin:35px 0;
-
-    padding:25px;
-
-    background:#f3f6ff;
-
-    border-radius:18px;
-
+#copyCoupon {
+    width: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: 12px;
+    background: #2563eb;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.35s;
 }
 
-.reward h3{
-
-    font-size:28px;
-
-    color:#2563eb;
-
-    margin-bottom:10px;
-
-}
-
-.reward p{
-
-    color:#777;
-
-    margin-bottom:10px;
-
-}
-
-.reward h1{
-
-    color:#111827;
-
-    letter-spacing:3px;
-
-    font-size:42px;
-
-}
-
-/* ==========================
-   BUTTON
-========================== */
-
-#copyCoupon{
-
-    width:100%;
-
-    padding:18px;
-
-    border:none;
-
-    border-radius:12px;
-
-    background:#2563eb;
-
-    color:#fff;
-
-    font-size:18px;
-
-    cursor:pointer;
-
-    transition:.35s;
-
-}
-
-#copyCoupon:hover{
-
-    background:#1d4ed8;
-
-    transform:translateY(-3px);
-
-}
-
-/* ==========================
-   CLOSE BUTTON
-========================== */
-
-.gift-close{
-
-    position:absolute;
-
-    top:15px;
-
-    right:20px;
-
-    width:40px;
-
-    height:40px;
-
-    border-radius:50%;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:28px;
-
-    cursor:pointer;
-
-    transition:.35s;
-
-}
-
-.gift-close:hover{
-
-    background:#ef4444;
-
-    color:#fff;
-
-    transform:rotate(90deg);
-
-}
-
-/* ==========================
-   ANIMATIONS
-========================== */
-
-@keyframes floatGift{
-
-    0%,100%{
-
-        transform:translateY(0);
-
-    }
-
-    50%{
-
-        transform:translateY(-12px);
-
-    }
-
-}
-
-@keyframes pulse{
-
-    0%{
-
-        transform:scale(1);
-
-        opacity:1;
-
-    }
-
-    100%{
-
-        transform:scale(1.7);
-
-        opacity:0;
-
-    }
-
-}
-
-@keyframes popup{
-
-    from{
-
-        opacity:0;
-
-        transform:scale(.7);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:scale(1);
-
-    }
-
-}
-
-/* ==========================
-   RESPONSIVE
-========================== */
-
-@media(max-width:768px){
-
-.gift-content{
-
-padding:30px 20px;
-
-}
-
-.gift-content h2{
-
-font-size:28px;
-
-}
-
-.reward h1{
-
-font-size:32px;
-
-}
-
-.gift-box{
-
-width:70px;
-
-height:70px;
-
-font-size:36px;
-
-}
-
+#copyCoupon:hover {
+    background: #1d4ed8;
+    transform: translateY(-3px);
 }
 
 /* ==========================
    HERO SECTION
 ========================== */
 
-.gift-hero{
-
-    min-height:100vh;
-
-    background:linear-gradient(135deg,#1e3c72,#2563eb);
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    padding:100px 20px;
-
-    color:#fff;
-
+.gift-hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1e3c72, #2563eb);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px;
+    color: #fff;
 }
 
-.gift-container{
-
-    max-width:850px;
-
+.gift-container {
+    max-width: 850px;
 }
 
-.gift-badge{
-
-    display:inline-block;
-
-    background:rgba(255,255,255,.2);
-
-    padding:10px 25px;
-
-    border-radius:50px;
-
-    margin-bottom:25px;
-
-    font-weight:bold;
-
-    letter-spacing:2px;
-
+.gift-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 25px;
+    border-radius: 50px;
+    margin-bottom: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
-.gift-container h1{
-
-    font-size:60px;
-
-    margin-bottom:20px;
-
+.gift-container h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
 }
 
-.gift-container p{
-
-    font-size:20px;
-
-    line-height:1.8;
-
-    max-width:700px;
-
-    margin:0 auto 35px;
-
+.gift-container p {
+    font-size: 20px;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto 35px;
 }
 
-.gift-image{
-
-    width:280px;
-
-    border-radius:20px;
-
-    margin:30px auto;
-
-    display:block;
-
-    animation:giftFloat 3s ease-in-out infinite;
-
-    box-shadow:0 20px 40px rgba(0,0,0,.25);
-
+.gift-image {
+    width: 280px;
+    border-radius: 20px;
+    margin: 30px auto;
+    display: block;
+    animation: floatGift 3s ease-in-out infinite; /* Standardized to floatGift */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
 }
 
-.gift-btn{
-
-    margin-top:20px;
-
-    padding:18px 45px;
-
-    border:none;
-
-    border-radius:50px;
-
-    background:#fff;
-
-    color:#2563eb;
-
-    font-size:18px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    transition:.35s;
-
+.gift-btn {
+    margin-top: 20px;
+    padding: 18px 45px;
+    border: none;
+    border-radius: 50px;
+    background: #fff;
+    color: #2563eb;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.35s;
 }
 
-.gift-btn:hover{
-
-    transform:translateY(-5px);
-
-    box-shadow:0 15px 30px rgba(0,0,0,.25);
-
+.gift-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
 }
 
 /* ==========================
    POSSIBLE REWARDS
 ========================== */
 
-.possible-rewards{
-
-    padding:100px 8%;
-
-    background:#fff;
-
-    text-align:center;
-
+.possible-rewards {
+    padding: 100px 8%;
+    background: #fff;
+    text-align: center;
 }
 
-.possible-rewards h2{
-
-    font-size:45px;
-
-    margin-bottom:50px;
-
-    color:#111827;
-
+.possible-rewards h2 {
+    font-size: 45px;
+    margin-bottom: 50px;
+    color: #111827;
 }
 
-.reward-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-    gap:30px;
-
+.reward-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
 }
 
-.reward-card{
-
-    background:#fff;
-
-    padding:35px;
-
-    border-radius:20px;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-    transition:.35s;
-
-    font-size:50px;
-
+.reward-card {
+    background: #fff;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: 0.35s;
+    font-size: 50px;
 }
 
-.reward-card h3{
-
-    font-size:20px;
-
-    margin-top:15px;
-
-    color:#333;
-
+.reward-card h3 {
+    font-size: 20px;
+    margin-top: 15px;
+    color: #333;
 }
 
-.reward-card:hover{
-
-    transform:translateY(-12px);
-
-    box-shadow:0 20px 40px rgba(37,99,235,.25);
-
+.reward-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.25);
 }
 
 /* ==========================
-   INFO SECTION
+   INFO & RULES SECTIONS
 ========================== */
 
-.gift-info{
-
-    padding:100px 8%;
-
-    background:#f8fafc;
-
-    text-align:center;
-
+.gift-info {
+    padding: 100px 8%;
+    background: #f8fafc;
+    text-align: center;
 }
 
-.gift-info h2{
-
-    font-size:42px;
-
-    margin-bottom:30px;
-
-    color:#111827;
-
+.gift-info h2 {
+    font-size: 42px;
+    margin-bottom: 30px;
+    color: #111827;
 }
 
-.gift-info p{
-
-    max-width:900px;
-
-    margin:auto;
-
-    font-size:18px;
-
-    line-height:2;
-
-    color:#555;
-
+.gift-info p {
+    max-width: 900px;
+    margin: auto;
+    font-size: 18px;
+    line-height: 2;
+    color: #555;
 }
 
-/* ==========================
-   RULES
-========================== */
-
-.gift-rules{
-
-    padding:100px 8%;
-
-    background:#fff;
-
+.gift-rules {
+    padding: 100px 8%;
+    background: #fff;
 }
 
-.gift-rules h2{
-
-    text-align:center;
-
-    font-size:42px;
-
-    margin-bottom:40px;
-
+.gift-rules h2 {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 40px;
 }
 
-.gift-rules ul{
-
-    max-width:700px;
-
-    margin:auto;
-
-    list-style:none;
-
+.gift-rules ul {
+    max-width: 700px;
+    margin: auto;
+    list-style: none;
 }
 
-.gift-rules li{
-
-    padding:18px 25px;
-
-    margin-bottom:20px;
-
-    background:#f3f6ff;
-
-    border-left:5px solid #2563eb;
-
-    border-radius:12px;
-
-    font-size:18px;
-
-}
-
-/* ==========================
-   CTA
-========================== */
-
-.gift-cta{
-
-    padding:120px 8%;
-
-    background:linear-gradient(135deg,#2563eb,#1e3c72);
-
-    color:#fff;
-
-    text-align:center;
-
-}
-
-.gift-cta h2{
-
-    font-size:48px;
-
-    margin-bottom:20px;
-
-}
-
-.gift-cta p{
-
-    font-size:20px;
-
-    margin-bottom:35px;
-
-}
-
-.gift-cta a{
-
-    display:inline-block;
-
-    padding:18px 45px;
-
-    background:#fff;
-
-    color:#2563eb;
-
-    text-decoration:none;
-
-    border-radius:50px;
-
-    font-weight:bold;
-
-    transition:.35s;
-
-}
-
-.gift-cta a:hover{
-
-    transform:translateY(-5px);
-
-    box-shadow:0 15px 30px rgba(0,0,0,.25);
-
-}
-
-/* ==========================
-   RESPONSIVE
-========================== */
-
-@media(max-width:768px){
-
-.gift-container h1{
-
-font-size:42px;
-
-}
-
-.gift-container p{
-
-font-size:17px;
-
-}
-
-.gift-image{
-
-width:220px;
-
-}
-
-.possible-rewards h2,
-.gift-info h2,
-.gift-rules h2,
-.gift-cta h2{
-
-font-size:34px;
-
-}
-
-.reward-grid{
-
-grid-template-columns:1fr;
-
-}
-
+.gift-rules li {
+    padding: 18px 25px;
+    margin-bottom: 20px;
+    background: #f3f6ff;
+    border-left: 5px solid #2563eb;
+    border-radius: 12px;
+    font-size: 18px;
 }
 
 /* ==========================
    SPIN WHEEL SECTION
 ========================== */
 
-.spin-wheel{
-
-    padding:100px 20px;
-
-    background:#f8fafc;
-
-    text-align:center;
-
+.spin-wheel {
+    padding: 100px 20px;
+    background: #f8fafc;
+    text-align: center;
 }
 
-.spin-wheel h2{
-
-    font-size:48px;
-
-    color:#111827;
-
-    margin-bottom:15px;
-
+.spin-wheel h2 {
+    font-size: 48px;
+    color: #111827;
+    margin-bottom: 15px;
 }
 
-.spin-wheel p{
-
-    font-size:18px;
-
-    color:#6b7280;
-
-    margin-bottom:50px;
-
+.spin-wheel p {
+    font-size: 18px;
+    color: #6b7280;
+    margin-bottom: 50px;
 }
 
-/* ==========================
-   WHEEL
-========================== */
-
-.wheel-container{
-
-    position:relative;
-
-    width:520px;
-
-    height:520px;
-
-    margin:auto;
-
+.wheel-container {
+    position: relative;
+    width: 520px;
+    height: 520px;
+    margin: auto;
+    animation: wheelFloat 3s ease-in-out infinite;
 }
 
-/* Canvas */
-
-#wheel{
-
-    width:100%;
-
-    height:100%;
-
-    border-radius:50%;
-
-    background:#fff;
-
-    border:12px solid #ffffff;
-
-    box-shadow:
-
-    0 20px 45px rgba(0,0,0,.18),
-
-    0 0 40px rgba(37,99,235,.18);
-
+.wheel-container::before {
+    content: "";
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    background: radial-gradient(rgba(37, 99, 235, 0.25), transparent);
+    z-index: -1;
+    animation: glow 2s infinite;
 }
 
-/* Pointer */
-
-.pointer{
-
-    position:absolute;
-
-    top:-35px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:0;
-
-    height:0;
-
-    border-left:25px solid transparent;
-
-    border-right:25px solid transparent;
-
-    border-top:45px solid #ef4444;
-
-    z-index:50;
-
-    filter:drop-shadow(0 6px 12px rgba(0,0,0,.25));
-
+#wheel {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #fff;
+    border: 12px solid #ffffff;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18), 0 0 40px rgba(37, 99, 235, 0.18);
 }
 
-/* Center Circle */
+.pointer {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-top: 45px solid #ef4444;
+    z-index: 50;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.25));
+}
 
-.center-circle{
+.center-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #111827;
+    border: 6px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 34px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
 
-    position:absolute;
+#spin {
+    margin-top: 40px;
+    padding: 18px 45px;
+    border: none;
+    border-radius: 50px;
+    background: #2563eb;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.35s;
+    box-shadow: 0 12px 25px rgba(37, 99, 235, 0.3);
+}
 
-    top:50%;
+#spin:hover {
+    background: #1d4ed8;
+    transform: translateY(-4px);
+}
 
-    left:50%;
-
-    transform:translate(-50%,-50%);
-
-    width:90px;
-
-    height:90px;
-
-    border-radius:50%;
-
-    background:#111827;
-
-    border:6px solid #fff;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    color:#fff;
-
-    font-size:34px;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.25);
-
+#result {
+    margin-top: 35px;
+    min-height: 60px;
+    font-size: 26px;
+    font-weight: bold;
+    color: #111827;
 }
 
 /* ==========================
-   SPIN BUTTON
+   COUNTDOWN & COMING SOON
 ========================== */
 
-#spin{
-
-    margin-top:40px;
-
-    padding:18px 45px;
-
-    border:none;
-
-    border-radius:50px;
-
-    background:#2563eb;
-
-    color:#fff;
-
-    font-size:18px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    transition:.35s;
-
-    box-shadow:0 12px 25px rgba(37,99,235,.3);
-
+.countdown {
+    padding: 80px 20px;
+    text-align: center;
+    background: #111827;
+    color: #fff;
 }
 
-#spin:hover{
+.countdown h2 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
 
-    background:#1d4ed8;
+.countdown p {
+    color: #cbd5e1;
+    margin-bottom: 30px;
+}
 
-    transform:translateY(-4px);
+#countdown {
+    display: inline-block;
+    padding: 20px 40px;
+    font-size: 50px;
+    font-weight: bold;
+    background: #2563eb;
+    border-radius: 20px;
+    letter-spacing: 4px;
+    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.4);
+}
 
+.coming-soon {
+    padding: 100px 8%;
+    background: #f8fafc;
+    text-align: center;
+}
+
+.coming-soon h2 {
+    font-size: 45px;
+    margin-bottom: 60px;
+}
+
+.coming-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.coming-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: 0.35s;
+    font-size: 16px; /* Adjusted default font size */
+}
+
+.coming-card .icon {
+    font-size: 55px; /* Applied icon size explicitly */
+}
+
+.coming-card h3 {
+    margin: 20px 0;
+}
+
+.coming-card p {
+    color: #666;
+    line-height: 1.8;
+}
+
+.coming-card:hover {
+    transform: translateY(-10px);
 }
 
 /* ==========================
-   RESULT
+   CALL TO ACTION (CTA)
 ========================== */
 
-#result{
+.gift-cta {
+    max-width: 900px;
+    margin: 70px auto;
+    padding: 45px 30px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #fff;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.25);
+}
 
-    margin-top:35px;
+.gift-cta h2 {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
 
-    min-height:60px;
+.gift-cta p {
+    font-size: 17px;
+    color: #e5e7eb;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
 
-    font-size:26px;
+.gift-cta a {
+    display: inline-block;
+    padding: 14px 35px;
+    background: #fff;
+    color: #2563eb;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: 0.3s;
+}
 
-    font-weight:bold;
-
-    color:#111827;
-
+.gift-cta a:hover {
+    background: #f3f4f6;
+    transform: translateY(-3px);
 }
 
 /* ==========================
-   ANIMATION
+   KEYFRAME ANIMATIONS
 ========================== */
 
-.wheel-container{
-
-    animation:wheelFloat 3s ease-in-out infinite;
-
+@keyframes floatGift {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
 }
 
-@keyframes wheelFloat{
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.7);
+        opacity: 0;
+    }
+}
 
-    0%,100%{
+@keyframes popup {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
-        transform:translateY(0);
+@keyframes wheelFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
 
+@keyframes glow {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.15);
+        opacity: 0;
+    }
+}
+
+/* ==========================
+   RESPONSIVE MEDIA QUERIES
+========================== */
+
+@media (max-width: 768px) {
+    .gift-box {
+        width: 70px;
+        height: 70px;
+        font-size: 36px;
     }
 
-    50%{
-
-        transform:translateY(-12px);
-
+    .gift-content {
+        padding: 30px 20px;
     }
 
-}
-
-/* Glow */
-
-.wheel-container::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:-20px;
-
-    border-radius:50%;
-
-    background:radial-gradient(rgba(37,99,235,.25),transparent);
-
-    z-index:-1;
-
-    animation:glow 2s infinite;
-
-}
-
-@keyframes glow{
-
-    0%{
-
-        transform:scale(1);
-
-        opacity:1;
-
+    .gift-content h2 {
+        font-size: 28px;
     }
 
-    100%{
-
-        transform:scale(1.15);
-
-        opacity:0;
-
+    .reward h1 {
+        font-size: 32px;
     }
 
-}
-
-/* ==========================
-   RESPONSIVE
-========================== */
-
-@media(max-width:768px){
-
-.wheel-container{
-
-width:330px;
-
-height:330px;
-
-}
-
-.spin-wheel h2{
-
-font-size:36px;
-
-}
-
-#spin{
-
-width:90%;
-
-}
-
-#result{
-
-font-size:20px;
-
-}
-
-.center-circle{
-
-width:70px;
-
-height:70px;
-
-font-size:26px;
-
-}
-
-}
-.countdown{
-
-    padding:80px 20px;
-
-    text-align:center;
-
-    background:#111827;
-
-    color:#fff;
-
-}
-
-.countdown h2{
-
-    font-size:42px;
-
-    margin-bottom:20px;
-
-}
-
-.countdown p{
-
-    color:#cbd5e1;
-
-    margin-bottom:30px;
-
-}
-
-#countdown{
-
-    display:inline-block;
-
-    padding:20px 40px;
-
-    font-size:50px;
-
-    font-weight:bold;
-
-    background:#2563eb;
-
-    border-radius:20px;
-
-    letter-spacing:4px;
-
-    box-shadow:0 15px 35px rgba(37,99,235,.4);
-
-}
-
-.coming-soon{
-
-    padding:100px 8%;
-
-    background:#f8fafc;
-
-    text-align:center;
-
-}
-
-.coming-soon h2{
-
-    font-size:45px;
-
-    margin-bottom:60px;
-
-}
-
-.coming-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-    gap:30px;
-
-}
-
-.coming-card{
-
-    background:#fff;
-
-    padding:40px;
-
-    border-radius:20px;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-
-    transition:.35s;
-
-}
-
-.coming-card:hover{
-
-    transform:translateY(-10px);
-
-}
-
-.coming-card{
-
-    font-size:55px;
-
-}
-
-.coming-card h3{
-
-    margin:20px 0;
-
-}
-
-.coming-card p{
-
-    color:#666;
-
-    line-height:1.8;
-
-}
-
-/* ==========================
-   COMPACT CTA
-========================== */
-
-.gift-cta{
-
-    max-width:900px;
-
-    margin:70px auto;
-
-    padding:45px 30px;
-
-    background:linear-gradient(135deg,#2563eb,#1d4ed8);
-
-    color:#fff;
-
-    text-align:center;
-
-    border-radius:20px;
-
-    box-shadow:0 12px 30px rgba(37,99,235,.25);
-
-}
-
-.gift-cta h2{
-
-    font-size:34px;
-
-    margin-bottom:12px;
-
-}
-
-.gift-cta p{
-
-    font-size:17px;
-
-    color:#e5e7eb;
-
-    margin-bottom:25px;
-
-    line-height:1.6;
-
-}
-
-.gift-cta a{
-
-    display:inline-block;
-
-    padding:14px 35px;
-
-    background:#fff;
-
-    color:#2563eb;
-
-    text-decoration:none;
-
-    border-radius:50px;
-
-    font-weight:bold;
-
-    transition:.3s;
-
-}
-
-.gift-cta a:hover{
-
-    background:#f3f4f6;
-
-    transform:translateY(-3px);
-
+    .gift-container h1 {
+        font-size: 42px;
+    }
+
+    .gift-container p {
+        font-size: 17px;
+    }
+
+    .gift-image {
+        width: 220px;
+    }
+
+    .possible-rewards h2,
+    .gift-info h2,
+    .gift-rules h2,
+    .gift-cta h2,
+    .spin-wheel h2 {
+        font-size: 34px;
+    }
+
+    .reward-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .wheel-container {
+        width: 330px;
+        height: 330px;
+    }
+
+    .center-circle {
+        width: 70px;
+        height: 70px;
+        font-size: 26px;
+    }
+
+    #spin {
+        width: 90%;
+    }
+
+    #result {
+        font-size: 20px;
+    }
 }
