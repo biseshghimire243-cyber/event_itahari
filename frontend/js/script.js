@@ -1,122 +1,179 @@
-// Smooth animation on load
-window.addEventListener("load", () => {
-    document.body.style.opacity = "1";
-});
+// ==========================
+// WAIT FOR PAGE TO LOAD
+// ==========================
+document.addEventListener("DOMContentLoaded", function () {
 
-// Highlight active navigation link
-const links = document.querySelectorAll(".nav-links a");
-
-links.forEach(link => {
-    link.addEventListener("click", () => {
-        links.forEach(l => l.classList.remove("active"));
-        link.classList.add("active");
-    });
-});
-
-// Explore Events button
-const heroBtn = document.querySelector(".hero-btn");
-
-if(heroBtn){
-    heroBtn.addEventListener("click",()=>{
-        console.log("Explore Events Clicked");
-    });
-}
-
-// View Details buttons
-const buttons=document.querySelectorAll(".event-content button");
-
-buttons.forEach(btn=>{
-
-    btn.addEventListener("click",()=>{
-
-        alert("Event Details page will be added next.");
-
+    // Smooth animation
+    window.addEventListener("load", () => {
+        document.body.style.opacity = "1";
     });
 
-});
+    // ==========================
+    // ACTIVE NAVIGATION
+    // ==========================
+    const links = document.querySelectorAll(".nav-links a");
 
-const chatButton = document.getElementById("chatButton");
-const chatBox = document.getElementById("chatBox");
-const closeChat = document.getElementById("closeChat");
-const sendBtn = document.getElementById("sendBtn");
-const userInput = document.getElementById("userInput");
-const chatBody = document.getElementById("chatBody");
-
-if (
-    chatButton &&
-    chatBox &&
-    closeChat &&
-    sendBtn &&
-    userInput &&
-    chatBody
-) {
-
-    chatButton.onclick = () => {
-
-    alert("Clicked!");
-
-    chatBox.style.display = "block";
-
-};
-
-    closeChat.onclick = () => {
-        chatBox.style.display = "none";
-    };
-
-    sendBtn.onclick = sendMessage;
-
-    userInput.addEventListener("keypress", function (e) {
-        if (e.key === "Enter") {
-            sendMessage();
-        }
+    links.forEach(link => {
+        link.addEventListener("click", () => {
+            links.forEach(l => l.classList.remove("active"));
+            link.classList.add("active");
+        });
     });
 
-    function sendMessage() {
+    // ==========================
+    // HERO BUTTON
+    // ==========================
+    const heroBtn = document.querySelector(".hero-btn");
 
-        const text = userInput.value.trim();
+    if (heroBtn) {
+        heroBtn.addEventListener("click", () => {
+            console.log("Explore Events Clicked");
+        });
+    }
 
-        if (text === "") return;
+    // ==========================
+    // VIEW DETAILS BUTTONS
+    // ==========================
+    const buttons = document.querySelectorAll(".event-content button");
 
-        chatBody.innerHTML += `
-            <div class="user-message">${text}</div>
-        `;
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            alert("Event Details page will be added next.");
+        });
+    });
 
-        userInput.value = "";
+    // ==========================
+    // CHAT SUPPORT
+    // ==========================
+    const chatButton = document.getElementById("chatButton");
+    const chatBox = document.getElementById("chatBox");
+    const closeChat = document.getElementById("closeChat");
+    const sendBtn = document.getElementById("sendBtn");
+    const userInput = document.getElementById("userInput");
+    const chatBody = document.getElementById("chatBody");
 
-        setTimeout(() => {
+    console.log("Chat Button:", chatButton);
+    console.log("Chat Box:", chatBox);
 
-            let reply = "😊 Sorry, I didn't understand.";
+    if (
+        chatButton &&
+        chatBox &&
+        closeChat &&
+        sendBtn &&
+        userInput &&
+        chatBody
+    ) {
 
-            const msg = text.toLowerCase();
+        // OPEN CHAT
+        chatButton.addEventListener("click", function () {
 
-            if (msg.includes("booking") || msg.includes("book")) {
-                reply = "📅 You can book events from our Events page.";
+            console.log("Chat Button Clicked");
+
+            chatBox.style.display = "block";
+
+        });
+
+        // CLOSE CHAT
+        closeChat.addEventListener("click", function () {
+
+            chatBox.style.display = "none";
+
+        });
+
+        // SEND BUTTON
+        sendBtn.addEventListener("click", sendMessage);
+
+        // ENTER KEY
+        userInput.addEventListener("keypress", function (e) {
+
+            if (e.key === "Enter") {
+
+                sendMessage();
+
             }
-            else if (msg.includes("price") || msg.includes("cost")) {
-                reply = "💰 Our packages start from Rs. 20,000 depending on the event.";
-            }
-            else if (msg.includes("wedding")) {
-                reply = "💍 We provide complete wedding planning, decoration, photography and catering.";
-            }
-            else if (msg.includes("birthday")) {
-                reply = "🎂 Birthday packages are fully customizable.";
-            }
-            else if (msg.includes("gift")) {
-                reply = "🎁 Visit our Gift page to claim today's surprise reward.";
-            }
-            else if (msg.includes("location")) {
-                reply = "📍 We are located in Itahari, Sunsari, Nepal.";
-            }
-            else if (msg.includes("contact")) {
-                reply = "📞 Contact us at +977-98XXXXXXXX.";
-            }
+
+        });
+
+        function sendMessage() {
+
+            const text = userInput.value.trim();
+
+            if (text === "") return;
 
             chatBody.innerHTML += `
-                <div class="bot-message">${reply}</div>
+                <div class="user-message">
+                    ${text}
+                </div>
             `;
+
+            userInput.value = "";
 
             chatBody.scrollTop = chatBody.scrollHeight;
 
-        }, 700);
+            setTimeout(() => {
+
+                let reply = "😊 Sorry, I didn't understand.";
+
+                const msg = text.toLowerCase();
+
+                if (msg.includes("booking") || msg.includes("book")) {
+
+                    reply = "📅 You can book events from our Events page.";
+
+                }
+
+                else if (msg.includes("price") || msg.includes("cost")) {
+
+                    reply = "💰 Packages start from Rs. 20,000.";
+
+                }
+
+                else if (msg.includes("wedding")) {
+
+                    reply = "💍 We provide complete wedding planning.";
+
+                }
+
+                else if (msg.includes("birthday")) {
+
+                    reply = "🎂 Birthday packages are fully customizable.";
+
+                }
+
+                else if (msg.includes("gift")) {
+
+                    reply = "🎁 Visit our Gift page to claim today's reward.";
+
+                }
+
+                else if (msg.includes("location")) {
+
+                    reply = "📍 We are located in Itahari, Sunsari.";
+
+                }
+
+                else if (msg.includes("contact")) {
+
+                    reply = "📞 Contact us at +977-98XXXXXXXX.";
+
+                }
+
+                chatBody.innerHTML += `
+                    <div class="bot-message">
+                        ${reply}
+                    </div>
+                `;
+
+                chatBody.scrollTop = chatBody.scrollHeight;
+
+            }, 700);
+
+        }
+
+    } else {
+
+        console.error("❌ Chat HTML elements are missing!");
+
     }
-}
+
+});
