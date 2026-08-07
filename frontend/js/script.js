@@ -52,8 +52,12 @@ if (
 ) {
 
     chatButton.onclick = () => {
-        chatBox.style.display = "block";
-    };
+
+    alert("Clicked!");
+
+    chatBox.style.display = "block";
+
+};
 
     closeChat.onclick = () => {
         chatBox.style.display = "none";
