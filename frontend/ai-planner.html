@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Event Planner | Event Itahari</title>
+
+    <link rel="stylesheet" href="css/ai-planner.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- ==========================
+     HERO
+========================== -->
+
+<section class="planner-hero">
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+
+        <span class="ai-badge">
+
+            🤖 AI Powered
+
+        </span>
+
+        <h1>
+
+            AI Event Planner
+
+        </h1>
+
+        <p>
+
+            Plan your perfect event in just a few seconds.
+            Tell us your budget, guests and theme,
+            and our AI will recommend the best package.
+
+        </p>
+
+        <a href="#planner">
+
+            Start Planning ↓
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================
+     PLANNER
+========================== -->
+
+<section class="planner" id="planner">
+
+    <div class="planner-card">
+
+        <h2>
+
+            🤖 Plan Your Event
+
+        </h2>
+
+        <p>
+
+            Fill in the details below.
+
+        </p>
+
+        <form id="plannerForm">
+
+            <div class="input-group">
+
+                <label>
+
+                    Event Type
+
+                </label>
+
+                <select id="eventType">
+
+                    <option>Wedding</option>
+
+                    <option>Birthday</option>
+
+                    <option>Corporate</option>
+
+                    <option>Festival</option>
+
+                    <option>Seminar</option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="input-group">
+
+                <label>
+
+                    Number of Guests
+
+                </label>
+
+                <input
+                    type="number"
+                    id="guests"
+                    placeholder="Example: 250">
+
+            </div>
+
+
+
+            <div class="input-group">
+
+                <label>
+
+                    Budget (Rs.)
+
+                </label>
+
+                <input
+                    type="number"
+                    id="budget"
+                    placeholder="Example: 200000">
+
+            </div>
+
+
+
+            <div class="input-group">
+
+                <label>
+
+                    Theme
+
+                </label>
+
+                <select id="theme">
+
+                    <option>Royal</option>
+
+                    <option>Luxury</option>
+
+                    <option>Modern</option>
+
+                    <option>Traditional</option>
+
+                    <option>Minimal</option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="input-group">
+
+                <label>
+
+                    Event Location
+
+                </label>
+
+                <input
+                    type="text"
+                    id="location"
+                    placeholder="Example: Itahari">
+
+            </div>
+
+
+
+            <button type="button" id="generateBtn">
+
+                ✨ Generate AI Plan
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================
+     AI RESULT
+========================== -->
+
+<section class="result-section">
+
+    <div class="result-card" id="resultCard">
+
+        <h2>
+
+            🤖 AI Recommendation
+
+        </h2>
+
+        <p>
+
+            Your personalized event plan will appear here.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+
+
+<script src="js/ai-planner.js"></script>
+
+</body>
+
+</html>
